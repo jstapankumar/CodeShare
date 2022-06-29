@@ -1,8 +1,10 @@
 import React from 'react'
+import Navbar from './Navbar'
 
 function All() {
+  document.title = 'All Posts'
   return (
-    <div>All</div>
+    <div><Navbar/></div>
   )
 }
 

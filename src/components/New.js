@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { MdDescription, MdOutlineDriveFileRenameOutline } from "react-icons/md";
 import { FaFreeCodeCamp } from "react-icons/fa";
 import {BsFillPeopleFill} from 'react-icons/bs'
-import {AiOutlineCloudUpload} from 'react-icons/ai'
+import {AiFillTags, AiOutlineCloudUpload} from 'react-icons/ai'
+import Navbar from "./Navbar";
 
 const StyledDiv = styled.div`
   width: 800px;
@@ -11,6 +12,7 @@ const StyledDiv = styled.div`
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   padding: 20px;
   form {
     width: 100%;
@@ -24,7 +26,17 @@ const StyledDiv = styled.div`
       }
     }
     input{
-      min-width:300px;
+      min-width:400px;
+      max-width:100%;
+    }
+    .icon{
+      background:white;
+      width:50px;
+      height:50px;
+      border-radius: 50px;
+      padding:10px;
+      box-shadow: 0 3px 5px rgb(0, 0, 0, 0.15);
+
     }
     input,
     textarea {
@@ -35,10 +47,10 @@ const StyledDiv = styled.div`
       outline: none;
       box-shadow: 0 3px 5px rgb(0, 0, 0, 0.15);
       padding: 10px 20px;
-      border-radius: 20px;
+      border-radius: 10px;
       overflow: hidden;
       &:focus {
-        box-shadow: 0 5px 10px rgb(0, 0, 0, 0.1);
+        box-shadow: 0 5px 10px rgb(0, 0, 0, 0.15);
       }
     }
     textarea {
@@ -78,11 +90,13 @@ const StyledDiv = styled.div`
   }
 `;
 function New() {
+  document.title = 'Create Post'
   return (
     <StyledDiv>
+      <Navbar/>
       <form>
         <div className="title label">
-          <MdOutlineDriveFileRenameOutline />
+          <MdOutlineDriveFileRenameOutline className="icon" />
           <label htmlFor="title">Title of the post</label>
         </div>
         <input
@@ -91,26 +105,35 @@ function New() {
           name="title"
         />
         <div className="description label">
-          <MdDescription />
+          <MdDescription className="icon"/>
           <label htmlFor="description">Describe the post</label>
         </div>
         <textarea name="description" />
         <div className="code label">
-          <FaFreeCodeCamp />
+          <FaFreeCodeCamp className="icon"/>
           <label htmlFor="code">Write the code here.</label>
         </div>
         <textarea name="code" id="code" />
         <div className="author label">
-          <BsFillPeopleFill />
+          <BsFillPeopleFill className="icon"/>
           <label htmlFor="title">Author </label>
         </div>
         <input
           type="text"
           placeholder="Provide author name here...."
-          name="title"
+          name="author"
+        />
+        <div className="author label">
+          <AiFillTags className="icon"/>
+          <label htmlFor="title">Tags  </label>
+        </div>
+        <input
+          type="text"
+          placeholder="Provide comma seperated tags here ..."
+          name="tags"
         />
         <div className="post">
-        <AiOutlineCloudUpload/>
+        <AiOutlineCloudUpload />
         <button>Post</button>
         </div>
       </form>

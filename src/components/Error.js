@@ -48,6 +48,8 @@ justify-content: center;
 `;
 
 function Error() {
+  document.title = '404 Page'
+
   return (
     <StyledDiv>
       <div>
